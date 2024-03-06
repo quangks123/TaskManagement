@@ -11,9 +11,6 @@ public class Task {
     
     public Task() {
         val = new Validation();
-        id = 0;
-        time_from = time_to = 0;
-        name = tasktype = date = assignee = reviewer = "";
     }
 
     public Task(int id, String name, String tasktype, String date, String assignee, String reviewer, float time_from, float time_to) {
@@ -101,6 +98,9 @@ public class Task {
                 break;
             case 4: 
                 tasktype = "Review";
+                break;
+            default:
+                tasktype = "";
                 break;
         }
     }
