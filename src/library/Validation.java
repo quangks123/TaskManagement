@@ -19,70 +19,40 @@ public class Validation {
         }
     }
     
-    public float checkHourFrom(String hour) {
-        while (true) {                       
-            try {
-                float h = Float.parseFloat(hour);
-                if (h >= 24 || h < 0) {
-                    System.out.print("From: ");
-                    hour = sc.nextLine();
-                } else {
-                    return h;
-                }
-            } catch (Exception e) {
-                System.out.print("From: ");
-                hour = sc.nextLine();
+    public float checkHour(String hour, float min) {                     
+        try {
+            float h = Float.parseFloat(hour);
+            if (h >= 24 || h <= min) {
+                return -1;
+            } else {
+                return h;
             }
-        }
-    }
-    
-    public float checkHourTo(String hour, float f) {
-        while (true) {                       
-            try {
-                float h = Float.parseFloat(hour);
-                if (h >= 24 || h <= f) {
-                    System.out.print("To: ");
-                    hour = sc.nextLine();
-                } else {
-                    return h;
-                }
-            } catch (Exception e) {
-                System.out.print("To: ");
-                hour = sc.nextLine();
-            }
+        } catch (Exception e) {
+            return -1;
         }
     }
     
     
-    public int checkTypeTask(String s) {
-        while (true) {            
-            try {
-                int c = Integer.parseInt(s);
-                if (c < 1 || c > 4) {
-                    System.out.print("TTask type: ");
-                    s = sc.nextLine();
-                } else {
-                    return c;
-                }
-            } catch (Exception e) {
-                System.out.print("Task type: ");
-                s = sc.nextLine();
-            }
+    public int checkTypeTask(String s) {           
+        try {
+            int c = Integer.parseInt(s);
+            return c;
+        } catch (Exception e) {
+            return 0;
         }
+
     }
     
     public String checkDate(String date) {
-        while (true) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-            try {
-                String.valueOf(sdf.parse(date));
-                return date;
-            } catch (Exception e) {
-                System.out.println("Date to correct format(dd/mm/yyyy)!!");
-                System.out.print("Again: ");
-                date = sc.nextLine();
-            }
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+        try {
+            String.valueOf(sdf.parse(date));
+            return date;
+        } catch (Exception e) {
+            System.out.println("Date to correct format(dd/mm/yyyy)!!");
+            return "";
         }
     }
+
 
 }

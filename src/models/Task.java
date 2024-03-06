@@ -76,7 +76,7 @@ public class Task {
     }
 
     public void setTime_from(String time_from) {
-        this.time_from = val.checkHourFrom(time_from);
+        this.time_from = val.checkHour(time_from, 0);
     }
 
     public float getTime_to() {
@@ -84,7 +84,7 @@ public class Task {
     }
 
     public void setTime_to(String time_to) {
-        this.time_to = val.checkHourTo(time_to, time_from);
+        this.time_to = val.checkHour(time_to, time_from);
     }
     
     public void setTaskType(String s) {
@@ -107,7 +107,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return String.format("%-3s | %-15s | %-10s | %-10s | %-4s | %-9s | %-8s", id, name, tasktype, date, time_from, assignee, reviewer);
+        return String.format("%-3s | %-15s | %-10s | %-10s | %-4s | %-9s | %-8s", id, name, tasktype, date, time_to - time_from, assignee, reviewer);
     }
     
     
