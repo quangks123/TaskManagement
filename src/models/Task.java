@@ -13,15 +13,15 @@ public class Task {
         val = new Validation();
     }
 
-    public Task(int id, String name, String tasktype, String date, String assignee, String reviewer, float time_from, float time_to) {
-        this.id = id;
-        this.name = name;
-        this.tasktype = tasktype;
-        this.date = date;
-        this.assignee = assignee;
-        this.reviewer = reviewer;
-        this.time_from = time_from;
-        this.time_to = time_to;
+    public Task(int id, String name, int tasktype, String date, float time_from, float time_to, String assignee, String reviewer) {
+        setId(id);
+        setName(name);
+        setTaskType(String.valueOf(tasktype));
+        setDate(date);
+        setAssignee(assignee);
+        setReviewer(reviewer);
+        setTime_from(String.valueOf(time_from));
+        setTime_to(String.valueOf(time_to));
     }
 
     public int getId() {
